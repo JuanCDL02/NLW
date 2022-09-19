@@ -1,0 +1,171 @@
+*{  /*alteração global*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-image: url(Fundo.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    
+    font-family: 'inter', sans-serif; /*Fonte tirada do google*/
+    line-height: 160%;
+
+}
+
+header{
+    margin-top: 32px;
+    height: calc(120px + 32px); /*Medida pra destinada para nao afetar na transição "FromTop"*/
+}
+
+header div{
+    width: 120px;
+    margin: auto;/*Centralizar*/
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* borda colorida*/
+    
+    border-radius: 50%;
+
+    display: flex;
+    padding: 4px;/*borda*/
+
+    transition: transform .3s; /*Faz a transiçao para o transform em tantos segundos*/
+}
+header div:hover{ /*quando passar o mouse me cima */
+    transform: scale(1.1);
+
+}
+
+header img{
+
+    width: 100%; /* 100% de onde ela ta*/
+    border-radius:50%;
+   
+}
+
+main{
+
+    max-width: 580px;/* largura maxima*/
+    width: 90%; /* larguram em relação a tela*/
+    margin: 32px auto;
+
+    display: grid;
+    gap: 24px;
+
+    margin-top: 32px;
+
+}
+
+section{
+
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /* borda colorida*/
+    padding-top: 4px;
+    border-radius: 10px;
+
+
+}
+
+section div{
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2{
+
+    letter-spacing: -0.47px; /*espaço entre as letras*/
+}
+section p {
+
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+
+}
+section ul{
+ 
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap ; /*define se os itens flexíveis são forçados a ficarem na mesma linha ou se podem ser quebradas em varias linhas. Se o argumento for valido, ele define a direção em que as linhas são empilhadas.*/
+    gap: 16px; /*define o tamanho do espaço entre as linhas e colunas*/
+    margin-top: 24px;
+}
+
+section ul li{
+    transition: transform .3s;
+}
+
+section ul li:hover{
+    transform: scale(1.1);
+}
+
+.GameList img{
+    
+    width: 90px;
+    border-radius: 8px;
+}
+
+.ChanelList img{
+
+    border-radius: 50%;
+    width: 70%;
+    border: 1px solid #443e54;
+}
+
+                                /*Animation*/
+
+
+header div{
+    animation: fromTop .7s .5s backwards; /*Nome/ quando começar/ delay*/
+  
+}
+
+main section{
+    animation: fromBottom .7s backwards;
+}
+
+main section:nth-child(1){
+    animation-delay: 0s ;
+}
+  
+main section:nth-child(2){
+    animation-delay: .4s ;
+}
+main section:nth-child(3){
+    animation-delay: .7s ;
+}
+  
+                                
+    @keyframes fromTop{
+        from{
+            opacity: 0;
+            transform: translateY(-30px);} /*começar*/
+
+        to{
+            opacity: 1;
+            transform: translateY(0); /*terminar*/
+        }
+    }
+
+    @keyframes fromBottom{
+        from{
+            opacity: 0;
+            transform: translateY(30px);} /*começar*/
+
+        to{
+            opacity: 1;
+            transform: translateY(0); /*terminar*/
+     
+        }
+
+        /*Funciona como se fosse um elastico 
+        1 vc puxa pra tras ai entao ele vai ate onde desejar*/
+    }
